@@ -1,0 +1,77 @@
+/* ********************************landingSection**************************** */
+#landingSection {
+  height: 100vh;
+  position: relative;
+}
+
+#landingSection > img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+}
+
+.landingSectionContainer--header {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.landingSectionContainer--headerLogo > img {
+  height: 60px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.landingSectionContainer--loginSignup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 160px;
+}
+
+.landingSectionContainer--loginSignup > a {
+  height: 40px;
+}
+
+.loginButton {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.loginButton:hover {
+  color: #ffc107;
+}
+
+.signupButton:hover {
+  color: #ffffff;
+}
+
+.landingSection--wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* *************************************detailSection****************************** */
+
+#detailSection {
+  height: 100vh;
+  background-color: #ffc107;
+  position: relative;
+}
+
+.detailSection--wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#detailSection > h1 {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: bolder;
+}
