@@ -1,25 +1,39 @@
-/* ********************************landingSection**************************** */
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  font-family: "Heebo", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Josefin Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
 #landingSection {
   height: 100vh;
   position: relative;
 }
 
-#landingSection > img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -10;
+.landingSectionContainer {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .landingSectionContainer--header {
-  padding-top: 50px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 .landingSectionContainer--headerLogo > img {
-  height: 60px;
-  width: 100px;
+  height: 80px;
+  width: 200px;
   object-fit: contain;
 }
 
@@ -50,28 +64,21 @@
   color: #ffffff;
 }
 
-.landingSection--wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.message {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: max-content;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-/* *************************************detailSection****************************** */
-
-#detailSection {
-  height: 100vh;
-  background-color: #ffc107;
-  position: relative;
-}
-
-.detailSection--wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#detailSection > h1 {
-  color: #ffffff;
-  font-size: 60px;
+.message > h1 {
+  color: #ffc107;
+  font-size: 3.75rem;
   font-weight: bolder;
+}
+
+.message > a {
+  width: fit-content;
 }

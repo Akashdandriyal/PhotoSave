@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  font-family: "Heebo", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Josefin Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.userProfileheader {
+  height: 50vh;
+  background-size: 50px 50px;
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+}
+
+.userProfileheaderUserMenu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userProfileheaderUserMenu--button {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 20px;
+}
+
+.userProfileheaderUserMenu--button::after {
+  display: none !important;
+}
+
+.windowDesign {
+  width: 200px;
+  height: 200px;
+  border: solid 4px #ffffff;
+  top: 30px;
+  right: 10px;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.windowDesign > div {
+  width: 96px;
+  height: 96px;
+  border: solid 2px #ffffff;
+  position: relative;
+  /* background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); */
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  background-blend-mode: screen;
+}
+
+.windowDesign > div:after {
+  animation: shine 5s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+}
+
+@keyframes shine {
+  10% {
+    opacity: 1;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
+}
+
+.userProfileheader--username {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
+
+.userProfileheader--username > h1 {
+  color: #ffffff;
+}
+
+.userProfileheader--username > p {
+  color: #ffc107;
+}
+
+.userProfileIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.buttonContent::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.author {
+  font-weight: bolder;
+}
+
+.formFields {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.form-control:focus {
+  border-color: #ffc107 !important;
+  box-shadow: 0 0 0 0.1rem #ffc107 !important;
+}
+
+.fileInputFieldAndButton {
+  display: flex;
+  max-width: fit-content;
+}
+
+.fileInputFieldAndButton > input {
+  margin-right: 10px;
+}
+
+.pictureContainer > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* **************************Loading screen******************** */
+
+#page {
+  display: none;
+}
+#loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  background-image: url("http://i.stack.imgur.com/MnyxU.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}

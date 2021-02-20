@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  font-family: "Heebo", sans-serif;
+}
+
+#signup,
+#login {
+  height: 100vh;
+  position: relative;
+}
+
+.signupContainer,
+.loginContainer {
+  height: inherit;
+}
+
+.signupContainer--row,
+.loginContainer--row {
+  height: inherit;
+}
+
+.signupContainer--rowHeader,
+.loginContainer--rowHeader {
+  padding-top: 20px;
+}
+
+.signupContainer--rowHeaderLogo > img,
+.loginContainer--rowHeaderLogo > img {
+  height: 80px;
+  width: 200px;
+  object-fit: contain;
+}
+
+.signupForm > h1,
+.loginForm > h1 {
+  padding-top: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+}
+
+.form-control:focus {
+  border-color: #ffc107 !important;
+  box-shadow: 0 0 0 0.1rem #ffc107 !important;
+}
+
+.formSubmit {
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.formSubmit > p {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.formSubmit > p > a {
+  text-decoration: none;
+  color: #ffc107;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.formSubmit > p > a:hover {
+  color: #000000;
+}
+.signupBackground,
+.loginBackground {
+  background-color: #ffc107;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+
+.formFields {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.signupAlert,
+.loginAlert {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+@media (min-width: 1000px) {
+  .signupContainer,
+  .loginContainer {
+    max-width: inherit;
+  }
+
+  .signupForm,
+  .loginForm {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 999px) {
+  .signupBackground,
+  .loginBackground {
+    display: none;
+  }
+}

@@ -3,52 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= name %> | PhotoSave</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon//favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon//site.webmanifest">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/userProfile.css">
 </head>
 <body>
-    <h1>
-        User Profile
-    </h1>
-    <p>
-        After Login the user will reach here.
-    </p>
-    <h1><%= name %> </h1>
-    <div>
-        <form action="/userProfile" method="POST" enctype="multipart/form-data">
-            <div>
-                <label class="form-label" for="name">Image Title</label>
-                <input class="form-control" type="text" id="name" placeholder="Name" value="" name="name" required>
-            </div>
-            <div>
-                <label class="form-label" for="desc">Image Description</label>
-                <textarea class="form-control" name="desc" id="desc" cols="30" rows="2" placeholder="Description" required></textarea>
-            </div>
-            <div>
-                <label class="form-label" for="image">Upload Image</label>
-                <input class="btn btn-outline-success" type="file" id="image" name="image" value="" required>
-            </div>
-            <button class="btn btn-success" type="submit">Submit</button>
-        </form>
-    </div>
-    <div class="row" >
-        <% imageData.images.forEach(item => { %>
-            <div class="col-lg-3" >
-                <div class="pictureContainer" >
-                    <img src="data:image/<%= item.image.contentType%>;base64,<%=item.image.data.toString('base64')%>" alt="">
+    <div id="page">
+        <header class="userProfileheader">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg userProfileheaderUserMenu">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle userProfileheaderUserMenu--button" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="buttonContent">
+                                <img class="userProfileIcon" src="/images/camera.png" alt="">
+                                <%= username %> 
+                            </div>
+                        </a>
+                      
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="/changePassword">Change Password</a></li>
+                          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="windowDesign">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 userProfileheader--username">
+                        <h1>Welcome, <%= name %></h1>
+                        <p><span class="quote"></span><span class="author"></span></p>
+                    </div>
                 </div>
-                <div class="pictureDescription" >
-                    <h5><%= item.name %> </h5>
-                    <p><%= item.description %> </p>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <form action="/userProfile" method="POST" enctype="multipart/form-data">
+                    <div class="formFields">
+                        <label class="form-label" for="name">Image Title</label>
+                        <input class="form-control" type="text" id="name" placeholder="Name" value="" name="name" required>
+                    </div>
+                    <div class="formFields">
+                        <label class="form-label" for="desc">Image Description</label>
+                        <textarea class="form-control" name="description" id="desc" cols="30" rows="2" placeholder="Description" required></textarea>
+                    </div>
+                    <div class="formFields">
+                        <label class="form-label" for="image">Upload Image</label>
+                        <div class="fileInputFieldAndButton">
+                            <input class="btn btn-outline-dark" type="file" id="image" accept="image/*" name="image" value="" required>
+                            <button class="btn btn-danger" type="button" id="resetFileContent"><strong>RESET</strong></button>
+                        </div>
+                    </div>
+                    <button class="btn btn-dark" type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row uploadedPicturesRow" >
+                    <% imageData.forEach(item => { %>
+                        <div class="col-lg-3" >
+                            <div class="pictureContainer" >
+                                <img src=<%= item.image %>  alt=<%= item.name %>>
+                            </div>
+                            <div class="pictureDescription" >
+                                <h5><%= item.name %> </h5>
+                                <p><%= item.description %> </p>
+                            </div>
+                        </div>
+                    <% }); %>
+                    <div class="col-lg-3" >
+                        <a href="/userProfile/pictures">
+                            <div class="pictureContainer" >
+                                <img src="/images/gallery.png" alt="" >
+                            </div>
+                            <div class="pictureDescription" >
+                                <h5>OPEN GALLERY</h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        <% }); %>
+        </section>
     </div>
-    <hr>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/logout">Logout</a></li>
-    </ul>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <div id="loading"></div>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script src="/javascript/userProfile.js"></script>
 </body>
 </html>
